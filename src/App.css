@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+* {
+ box-sizing: border-box;
+ padding: 0;
+ margin: 0;
+}
+
+:root {
+ --header-height: 3.5rem;
+ --primary-color: #CE0000;
+ --secondary-color: #EFEEEC;
+ --paragraph-text-color: hsl(0, 0%, 24%);
+ --paragraph-font-size:16px;
+ --primary-font: "Poppins", sans-serif;
+ --secondary-font: "Inter";
+ --title-font-size: 40px;
+ --small-font-size: 0.813rem;
+ --font-semi-bold: 600;
+ --z-tooltip: 10;
+ --z-fixed: 100;
+ --gray-color:#909090;
+ --body-font-size:16px;
+ 
+  --bg:#023341;
+  --deep:#023341;
+  --accent:#FD5E02;
+  --cream:  rgb(252, 245, 227);
+  --dark: #023341;
+}
+
+body {
+  font-family: var(--primary-font);
+  background: var(--cream);
+  color: var(--dark);
+}
+
+ul {
+ list-style: none;
+}
+
+a {
+ text-decoration: none;
+}
+.preloader{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

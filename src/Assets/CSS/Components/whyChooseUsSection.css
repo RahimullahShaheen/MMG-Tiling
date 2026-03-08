@@ -1,0 +1,208 @@
+/* whyChooseUsSection.css */
+:root{
+  --white:#FFFFFF;
+  --grey:#E5E5E5;
+  --accent:#FCA311;
+  --navy:#14213D;
+  --black:#000000;
+}
+
+.wc-wrap{
+  background: var(--white);
+  padding: 86px 16px;
+}
+
+.wc-container{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 54px;
+  align-items: center;
+}
+
+/* LEFT */
+.wc-left{
+  position: relative;
+  min-height: 460px;
+}
+
+.wc-mainImg{
+  width: 100%;
+  height: 460px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--grey);
+  box-shadow: 0 22px 55px rgba(0,0,0,.10);
+}
+
+.wc-mainImg img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* FLOAT: same vibe as screenshot (bigger, rounded, sits bottom-right) */
+.wc-floatImg{
+  position: absolute;
+  right: 38px;
+  bottom: -26px;
+  width: 260px;
+  height: 260px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--grey);
+  box-shadow: 0 26px 70px rgba(0,0,0,.16);
+  border: 0; /* screenshot doesn't have thick border */
+}
+
+.wc-floatImg img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* RIGHT */
+.wc-kicker{
+  margin: 0 0 10px;
+  font-size: 12px;
+  letter-spacing: .18em;
+  font-weight: 900;
+  color: rgba(0,0,0,.55);
+}
+
+.wc-title{
+  margin: 0 0 16px;
+  font-size: clamp(20px, 2.6vw, 44px);
+  line-height: 1.05;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.wc-desc{
+  margin: 0 0 18px;
+  color: rgba(0,0,0,.62);
+  line-height: 1.8;
+  font-size: 15px;
+  max-width: 560px;
+}
+
+.wc-list{
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: grid;
+  gap: 12px;
+}
+
+.wc-item{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(0,0,0,.75);
+  font-weight: 700;
+}
+
+.wc-check{
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: rgba(20,33,61,.10);
+  color: var(--navy);
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+/* BUTTONS (no animation on images; buttons can still have tiny hover) */
+.wc-actions{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.wc-btn{
+  border: none;
+  background: var(--navy);
+  color: var(--white);
+  padding: 12px 18px;
+  font-weight: 900;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.wc-btnGhost{
+  background: transparent;
+  color: var(--navy);
+  border: 2px solid rgba(20,33,61,.18);
+}
+
+/* ✅ IMPORTANT: NO transitions/animations on images */
+.wc-mainImg img,
+.wc-floatImg img{
+  transition: none !important;
+  animation: none !important;
+}
+/* ===== Scroll reveal animation (optional) ===== */
+.wc-reveal1, .wc-reveal2, .wc-reveal3, .wc-reveal4{
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 650ms ease, transform 650ms ease;
+}
+
+.wc-wrap.isInView .wc-reveal1{ opacity: 1; transform: translateY(0); transition-delay: 0ms; }
+.wc-wrap.isInView .wc-reveal2{ opacity: 1; transform: translateY(0); transition-delay: 120ms; }
+.wc-wrap.isInView .wc-reveal3{ opacity: 1; transform: translateY(0); transition-delay: 240ms; }
+.wc-wrap.isInView .wc-reveal4{ opacity: 1; transform: translateY(0); transition-delay: 360ms; }
+
+/* If you want ZERO animation on mobile */
+@media (max-width: 640px){
+  .wc-reveal1, .wc-reveal2, .wc-reveal3, .wc-reveal4{
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 980px){
+  .wc-container{
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .wc-left{
+    min-height: auto;
+  }
+
+  .wc-mainImg{
+    height: 360px;
+  }
+
+  .wc-floatImg{
+    right: 18px;
+    bottom: -18px;
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 560px){
+  .wc-wrap{ padding: 60px 14px; }
+
+  .wc-mainImg{
+    height: 280px;
+    border-radius: 18px;
+  }
+
+  .wc-floatImg{
+    right: 12px;
+    bottom: -14px;
+    width: 180px;
+    height: 180px;
+    border-radius: 16px;
+  }
+}

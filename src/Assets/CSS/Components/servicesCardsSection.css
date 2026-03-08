@@ -1,0 +1,163 @@
+:root{
+  --white:#FFFFFF;
+  --grey:#E5E5E5;
+  --accent:#FCA311;
+  --navy:#14213D;
+  --black:#000000;
+}
+
+.sc-wrap{
+  background: #f6f7f7;
+  padding: 80px 16px;
+}
+
+.sc-container{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sc-title{
+  margin: 0 0 28px;
+  text-align: center;
+  color: var(--navy);
+  font-weight: 900;
+  font-size: clamp(28px, 3.5vw, 48px);
+}
+
+/* GRID */
+.sc-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+/* CARD */
+.sc-card{
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: 0 18px 40px rgba(0,0,0,.08);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+/* IMAGE TOP */
+.sc-imageWrap{
+  height: 260px;
+  overflow: hidden;
+  background: var(--grey);
+}
+
+.sc-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform .22s ease;
+}
+
+/* WHITE PANEL (overlapping like screenshot) */
+.sc-panel{
+  position: relative;
+  margin: -48px 18px 18px;
+  background: var(--white);
+  border-radius: 18px;
+  padding: 22px 18px 18px;
+  text-align: center;
+  box-shadow: 0 16px 32px rgba(0,0,0,.08);
+}
+
+/* ICON */
+.sc-icon{
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 10px;
+  background: rgba(20,33,61,.06);
+  color: var(--navy);
+  font-size: 22px;
+}
+
+.sc-icon img{
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+.sc-cardTitle{
+  margin: 0 0 10px;
+  font-weight: 900;
+  color: var(--navy);
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+.sc-desc{
+  margin: 0 0 14px;
+  color: rgba(0,0,0,.6);
+  line-height: 1.65;
+  font-size: 14px;
+  min-height: 46px;
+}
+
+.sc-link{
+  border: none;
+  background: transparent;
+  color: var(--navy);
+  font-weight: 900;
+  letter-spacing: .06em;
+  cursor: pointer;
+  padding: 8px 10px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+/* SIMPLE HOVER (card + image) */
+.sc-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 26px 60px rgba(0,0,0,.12);
+}
+.sc-card:hover .sc-image{
+  transform: scale(1.08);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px){
+  .sc-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px){
+  /* mobile: one by one */
+  .sc-wrap{
+    padding: 56px 14px;
+  }
+
+  .sc-grid{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .sc-imageWrap{
+    height: 220px;
+  }
+
+  .sc-panel{
+    margin: -64px 14px 14px;
+    padding: 18px 14px 14px;
+  }
+
+  /* keep hover harmless on touch devices */
+  .sc-card:hover{
+    transform: none;
+    box-shadow: 0 18px 40px rgba(0,0,0,.08);
+  }
+  .sc-card:hover .sc-image{
+    transform: scale(1.02);
+  }
+}

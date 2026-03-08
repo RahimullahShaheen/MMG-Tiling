@@ -1,0 +1,68 @@
+/* ServiceHero.css */
+:root{
+  /* change these to match your theme */
+  --sp-bg: #0b1a22;         /* deep overlay */
+  --sp-text: #ffffff;
+  --sp-muted: rgba(255,255,255,.78);
+  --sp-accent: #fca311;     /* orange */
+  --sp-pill: rgba(255,255,255,.12);
+  --sp-pill-border: rgba(255,255,255,.16);
+}
+
+.sp-hero{
+  position: relative;
+  min-height: 420px;
+  padding: 90px 18px;
+  display: grid;
+  place-items: center;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* dark overlay + slight gradient like screenshot */
+.sp-heroOverlay{
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(1200px 600px at 15% 60%, rgba(0,0,0,.55), transparent 60%),
+    linear-gradient(90deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,.35) 100%),
+    rgba(11,26,34,.35);
+  pointer-events: none;
+}
+
+.sp-heroInner{
+  position: relative;
+  width: 100%;
+  max-width: 980px;
+  text-align: center;
+  color: var(--sp-text);
+  padding: 8px 8px 0;
+}
+
+/* small yellow bar above title */
+.sp-heroAccent{
+  display: inline-block;
+  width: 64px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--sp-accent);
+  margin-bottom: 18px;
+}
+
+.sp-heroTitle{
+  margin: 0;
+  font-size: clamp(34px, 4.2vw, 56px);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: .2px;
+  text-shadow: 0 10px 30px rgba(0,0,0,.28);
+}
+
+.sp-heroSub{
+  margin: 16px auto 0;
+  max-width: 720px;
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.9;
+  color: var(--sp-muted);
+}

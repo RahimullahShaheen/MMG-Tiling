@@ -1,0 +1,214 @@
+/* testimonialsSection.css */
+:root{
+  --white:#FFFFFF;
+  --grey:#E5E5E5;
+  --accent:#FCA311;
+  --navy:#14213D;
+  --black:#000000;
+}
+
+.tst-wrap{
+  background: var(--white);
+  padding: 92px 18px;
+}
+
+.tst-container{
+  max-width: 980px; /* wider so not "small on one side" */
+  margin: 0 auto;
+}
+
+.tst-head{
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.tst-kicker{
+  font-size: 12px;
+  letter-spacing: .18em;
+  font-weight: 900;
+  color: rgba(0,0,0,.55);
+  margin-bottom: 10px;
+}
+
+.tst-title{
+  font-size: clamp(28px, 3.2vw, 34px);
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+}
+
+.tst-sub{
+  color: rgba(0,0,0,.6);
+  font-size: 15px;
+  margin: 0;
+}
+
+/* SINGLE CARD */
+.tst-card{
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 28px 70px rgba(0,0,0,.10);
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tst-card:hover{
+  border-color: rgba(20,33,61,.16);
+}
+
+.tst-quoteMark{
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 950;
+  color: rgba(20,33,61,.10);
+  pointer-events: none;
+}
+
+.tst-topRow{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.tst-leftMeta{
+  display:flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.tst-avatar{
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(20,33,61,.10);
+  display:grid;
+  place-items:center;
+  font-weight: 950;
+  color: var(--navy);
+  font-size: 18px;
+}
+
+.tst-name{
+  font-weight: 950;
+  color: var(--black);
+  font-size: 16px;
+}
+
+.tst-loc{
+  font-size: 13px;
+  color: rgba(0,0,0,.60);
+  margin-top: 2px;
+}
+
+.tst-stars{
+  color: var(--accent);
+  letter-spacing: 3px;
+  font-weight: 900;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+/* fixed height frame -> prevents jumping */
+.tst-swapFrame{
+  min-height: 17px; /* increase if your text is longer */
+  display: flex;
+  align-items: center;
+}
+
+.tst-swapCard{
+  width: 100%;
+  animation: tstFadeSlide 320ms ease both;
+}
+
+.tst-swapCard.isNext{ --fromX: 14px; }
+.tst-swapCard.isPrev{ --fromX: -14px; }
+
+@keyframes tstFadeSlide{
+  from { opacity: 0; transform: translateX(var(--fromX, 12px)); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.tst-chip{
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  background: rgba(252,163,17,.15);
+  border: 1px solid rgba(252,163,17,.35);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 14px;
+  color: var(--navy);
+}
+
+.tst-text{
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.9;
+  color: rgba(0,0,0,.78);
+}
+
+/* footer controls */
+.tst-footer{
+  margin-top: 18px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tst-btn{
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(20,33,61,.18);
+  background: rgba(20,33,61,.06);
+  color: var(--navy);
+  font-weight: 950;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+
+.tst-btn:hover{
+  transform: translateY(-1px);
+  background: rgba(20,33,61,.10);
+  border-color: rgba(20,33,61,.26);
+}
+
+.tst-dots{
+  display:flex;
+  gap: 8px;
+  align-items:center;
+}
+
+.tst-dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(20,33,61,.35);
+  background: transparent;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease;
+}
+
+.tst-dot.isActive{
+  background: var(--navy);
+  transform: scale(1.1);
+}
+
+/* mobile */
+@media (max-width: 560px){
+  .tst-wrap{ padding: 64px 14px; }
+  .tst-card{ padding: 20px; border-radius: 18px; }
+  .tst-text{ font-size: 16px; }
+  .tst-swapFrame{ min-height: 240px; } /* more space for wrap */
+  .tst-stars{ font-size: 16px; letter-spacing: 2px; }
+}

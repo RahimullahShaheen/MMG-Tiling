@@ -1,0 +1,120 @@
+/* THEME */
+:root {
+  --dark: #023341;
+  --orange: #FD5E02;
+  --cream: #FCF5E3;
+}
+
+/* SECTION */
+.contact-section {
+  background: var(--cream);
+  padding: 70px 0;
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* ✅ 20px margin from screen edges */
+}
+
+/* TITLE */
+.contact-title {
+  text-align: center;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 60px;
+}
+
+/* STAGE */
+.contact-stage {
+  position: relative;
+  height: 240px;
+}
+
+/* CARD BASE */
+.contact-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 340px;
+  padding: 26px;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(2, 51, 65, 0.18);
+  transform: translate(-50%, -50%);
+  transition: transform 1400ms cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 1400ms ease;
+}
+
+/* COLORS */
+.contact-card.left,
+.contact-card.right {
+  background: rgba(253, 94, 2, 0.12);
+  color: var(--dark);
+}
+
+.contact-card.center {
+  background: var(--dark);
+  color: var(--cream);
+  z-index: 3;
+}
+
+/* TEXT */
+.contact-card h3 {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.contact-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* START STACKED */
+.stacked.left {
+  transform: translate(-50%, -50%) translateX(-12px) scale(0.97);
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.stacked.center {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.stacked.right {
+  transform: translate(-50%, -50%) translateX(12px) scale(0.97);
+  opacity: 0.9;
+  z-index: 2;
+}
+
+/* SPREAD (20px gap from center) */
+.spread.left {
+  transform: translate(-50%, -50%) translateX(-420px);
+  opacity: 1;
+}
+
+.spread.center {
+  transform: translate(-50%, -50%);
+}
+
+.spread.right {
+  transform: translate(-50%, -50%) translateX(420px);
+  opacity: 1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contact-stage {
+    height: auto;
+  }
+
+  .contact-card {
+    position: static;
+    transform: none !important;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

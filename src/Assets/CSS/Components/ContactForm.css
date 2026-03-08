@@ -1,0 +1,134 @@
+/* ContactFormCard.css */
+
+/* page bg (soft like screenshot) */
+.cf-wrap {
+  background: var(--cream);
+  padding: 4px 16px;
+}
+
+.cf-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* big rounded panel */
+.cf-card {
+  background: rgba(253, 94, 2, 0.12);
+  border-radius: 22px;
+  padding: 24px 24px 20px;
+  box-shadow: 0 30px 80px rgba(2, 51, 65, 0.16);
+}
+
+/* form layout */
+.cf-form {
+  width: 100%;
+}
+
+.cf-grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px 30px;
+}
+
+.cf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cf-full {
+  margin-top: 26px;
+}
+
+.cf-label {
+  color: var(--dark);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.cf-input,
+.cf-textarea {
+  width: 100%;
+  background: transparent;
+  border: 1.5px solid rgba(2, 51, 65, 0.55);
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: var(--dark);
+  outline: none;
+}
+
+.cf-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* placeholder */
+.cf-input::placeholder,
+.cf-textarea::placeholder {
+  color: rgba(2, 51, 65, 0.65);
+}
+
+/* focus */
+.cf-input:focus,
+.cf-textarea:focus {
+  border-color: var(--cream);
+  box-shadow: 0 0 0 3px rgba(253, 94, 2, 0.18);
+}
+
+/* submit button (big pill) */
+.cf-submit {
+  margin-top: 26px;
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding: 5px 5px;
+  background: var(--dark);
+  color: var(--cream);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.cf-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 50px rgba(2, 51, 65, 0.25);
+  color: rgba(2, 51, 65, 0.65);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: var(--cream);
+  width: 100%;
+  border: none;
+}
+
+.cf-submit:active {
+  transform: translateY(0px);
+}
+
+/* a11y helper */
+.cf-srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* responsive */
+@media (max-width: 820px) {
+  .cf-card {
+    padding: 24px 18px 20px;
+  }
+  .cf-grid2 {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .cf-full {
+    margin-top: 18px;
+  }
+}

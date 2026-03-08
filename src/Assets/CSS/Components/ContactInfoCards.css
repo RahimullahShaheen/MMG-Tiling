@@ -1,0 +1,197 @@
+:root {
+   --white:#FFFFFF;
+  --light:#E5E5E5;
+  --accent:#FCA311;
+  --dark:#14213D;
+  --black:#000000;
+  /* Safe side padding from screen edges (your request) */
+  --side-safe: 20px;
+
+  /* Animation timing (MUST 700ms) */
+  --dur: 1300ms;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Card sizing */
+  --card-w: 280px;
+  --card-r: 18px;
+
+  /*
+    IMPORTANT: final offset uses clamp so cards NEVER go off-screen.
+    - min: 260px
+    - ideal: (half container) - (half card) - safe padding
+    - max: 420px
+  */
+  --final-offset: clamp(
+    260px,
+    calc((min(1200px, 100vw - (2 * var(--side-safe))) / 2) - (var(--card-w) / 2) - 12px),
+    420px
+  );
+}
+
+/* section */
+.cic-section {
+  background: var(--white);
+  padding: 64px 0 70px;
+}
+
+/* container = gives exactly 20px safe space from screen edges */
+.cic-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--side-safe);
+}
+
+.cic-title {
+  text-align: center;
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 900;
+  color: var(--dark);
+  margin: 0 0 56px;
+  letter-spacing: -0.02em;
+}
+
+/* stage */
+.cic-stage {
+  position: relative;
+  height: 210px;
+}
+
+/* base card */
+.cic-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--card-w);
+  border-radius: var(--card-r);
+  padding: 22px 24px;
+  text-decoration: none;
+  box-shadow: 0 22px 60px rgba(2, 51, 65, 0.18);
+  transform: translate(-50%, -50%) scale(0.96);
+  opacity: 0;
+  transition:
+    transform var(--dur) var(--ease),
+    opacity var(--dur) ease-out;
+  will-change: transform, opacity;
+  pointer-events: auto;
+}
+
+/* light cards */
+.cic-left,
+.cic-right {
+  background: var(--light);
+  border: 1px solid rgba(2, 51, 65, 0.12);
+}
+
+/* dark center card */
+.cic-center {
+  background: var(--accent);
+  border: 1px solid rgba(252, 245, 227, 0.14);
+  z-index: 3;
+}
+
+/* icon */
+.cic-iconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+}
+
+.cic-iconBox--light {
+  background: var(--light);
+}
+
+.cic-content {
+  margin-top: 14px;
+}
+
+.cic-h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--dark);
+}
+
+.cic-h3--light {
+  color: var(--cream);
+}
+
+.cic-p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(2, 51, 65, 0.78);
+}
+
+.cic-p--light {
+  color: rgba(252, 245, 227, 0.85);
+}
+
+/* ---------- START state: stacked (slight overlap) ---------- */
+.cic-left {
+  transform: translate(-50%, -50%) translateX(-10px) translateY(8px) scale(0.96);
+  opacity: 0;
+  z-index: 1;
+}
+.cic-center {
+  transform: translate(-50%, -50%) translateX(0px) translateY(0px) scale(0.96);
+  opacity: 0;
+}
+.cic-right {
+  transform: translate(-50%, -50%) translateX(10px) translateY(8px) scale(0.96);
+  opacity: 0;
+  z-index: 2;
+}
+
+/* ---------- END state: spread (safe, never off-screen) ---------- */
+.cic-stage.is-mounted .cic-left {
+  transform: translate(-50%, -50%) translateX(calc(-1 * var(--final-offset))) scale(1);
+  opacity: 1;
+}
+.cic-stage.is-mounted .cic-center {
+  transform: translate(-50%, -50%) translateX(0px) scale(1);
+  opacity: 1;
+}
+.cic-stage.is-mounted .cic-right {
+  transform: translate(-50%, -50%) translateX(var(--final-offset)) scale(1);
+  opacity: 1;
+}
+
+/* hover (small, safe) */
+.cic-card:hover {
+  transform: translate(-50%, -50%) scale(1.01);
+}
+.cic-stage.is-mounted .cic-left:hover {
+  transform: translate(-50%, -50%) translateX(calc(-1 * var(--final-offset))) scale(1.01);
+}
+.cic-stage.is-mounted .cic-right:hover {
+  transform: translate(-50%, -50%) translateX(var(--final-offset)) scale(1.01);
+}
+.cic-stage.is-mounted .cic-center:hover {
+  transform: translate(-50%, -50%) translateX(0px) scale(1.01);
+}
+
+/* mobile: stacked layout, no overlap animation */
+@media (max-width: 900px) {
+  .cic-stage {
+    height: auto;
+    display: grid;
+    gap: 16px;
+  }
+
+  .cic-card {
+    position: static;
+    width: 100%;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cic-card {
+    transition: none !important;
+  }
+}
