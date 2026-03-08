@@ -8,7 +8,6 @@ import "./App.css";
 const Home = lazy(() => import("./Pages/Home"));
 const ContactUs = lazy(() => import("./Pages/ContactInfo"));
 const AboutUs = lazy(() => import("./Pages/AboutUs"));
-const Services = lazy(() => import("./Pages/Services"));
 const TileInstallation = lazy(() => import("./services/TileInstallation"));
 const BathroomTilling = lazy(() => import("./services/BathroomTilling"));
 const WaterProofing = lazy(() => import("./services/WaterProofing"));
@@ -25,7 +24,6 @@ export default function App() {
            <Route path="/" element={<Home />} />
            <Route path="/contact" element={<ContactUs />} />
            <Route path="/about" element={<AboutUs />} />
-           <Route path="/services" element={<Services />} />
            <Route path="/services/TileInstallation" element={<TileInstallation />} />
            <Route path="/services/BathroomTilling" element={<BathroomTilling />} />
            <Route path="/services/WaterProofing" element={<WaterProofing />} />
